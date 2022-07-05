@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<title>HUNT-DB - database</title>
+
+<!--<base href="/Users/decoene/Documents/HUNTDB_dev/HUNTDB/"> -->
+<base href="./">
+
+<link rel="stylesheet" href="Styles/stylesHUNTDB.css">
+<link rel="icon" type="image/x-icon" href="Images/Logo.png">
+
+<meta charset="UTF-8">
+<meta name="description" content="Database for neutrino transient models">
+<meta name="keywords" content="Transient, Neutrino, Astrophysics">
+<meta name="author" content="Claire Guépin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="Scripts/scriptsHUNTDB.js"></script>
+
+</head>
+
+<body>
+
+<!--Page title-->
+<header>
+<h1>
+<img src="Images/Logo.png" alt="Logo" style="vertical-align:middle; width: 5%;">
+High-energy to Ultra-high energy Neutrino Transient Data Base.
+</h1>
+</header>
+
+<!--Navigation bar-->
+<nav>
+<div class="topnav">
+ <a href="index.html">Home</a>
+ <a class="active" href="table.html">Database</a>
+ <a href="manual.html">Manual</a>
+ <a href="sources.html">Sources</a>
+ <a href="random.html">Random</a>
+</div>
+</nav>
+
+<h2>Data base instructions</h2>
+
+<div>
+On this page, you can:
+<ul>
+<li>submit the properties of a transient neutrino source model from a published paper,</li>
+<li>generate a custom table displaying the properties of transient source models already referenced in the database.</li>
+</ul>
+</div>
+
+<p>
+Please read the <a href="manual.html">manual page</a> before using the database. The manual explains the meaning of the model properties referenced in the database.<br> Moreover, the <a href="sources.html">source page</a> gives useful information concerning source categories and associated references.
+</p>
+
+<h2>Submit a transient neutrino source model</h2>
+
+To submit a source model,
+<button type="button" class="link" onclick="displayform()">please fill this form</button>.
+
+<p>
+<form id="formsource" style="display: none;" method="post" action="formdata.php">
+    <div class="row">
+    <div class="column">
+    <label for="arxname">arXiv link:</label><br>
+    <input class="formsour" type="text" id="arxname" name="arxname"><br>
+    </div>
+    <div class="column">
+    <label for="yeaname">Year of publication:</label><br>
+    <input class="formsour" type="text" id="yeaname" name="yeaname"><br>
+    </div>
+    <div class="column">
+    <label for="catname">Transient category:</label><br>
+    <input class="formsour" type="text" id="catname" name="catname"><br>
+    </div>
+    <div class="column">
+    <label for="modname">Modeling:</label><br>
+    <input class="formsour" type="text" id="modname" name="modname"><br>
+    </div>
+    <div class="column">
+    <label for="motname">Motivation:</label><br>
+    <input class="formsour" type="text" id="motname" name="motname"><br>
+    </div>
+    <div class="column">
+    <label for="resname">Results:</label><br>
+    <input class="formsour" type="text" id="resname" name="resname"><br>
+    </div>
+    <div class="column">
+    <label for="pername">Perspectives:</label><br>
+    <input class="formsour" type="text" id="pername" name="pername"><br>
+    </div>
+    <div class="column">
+    <label for="codname">Codes:</label><br>
+    <input class="formsour" type="text" id="codname" name="codname"><br>
+    </div>
+    <div class="column">
+    <label for="zonname">Zones:</label><br>
+    <input class="formsour" type="text" id="zonname" name="zonname"><br>
+    </div>
+    <div class="column">
+    <label for="comname">Composition:</label><br>
+    <input class="formsour" type="text" id="comname" name="comname"><br>
+    </div>
+    <div class="column">
+    <label for="accname">Acceleration:</label><br>
+    <input class="formsour" type="text" id="accname" name="accname"><br>
+    </div>
+    <div class="column">
+    <label for="intname">Interactions:</label><br>
+    <input class="formsour" type="text" id="intname" name="intname"><br>
+    </div>
+    <div class="column">
+    <label for="maxname">Maximum energies:</label><br>
+    <input class="formsour" type="text" id="maxname" name="maxname"><br>
+    </div>
+    <div class="column">
+    <label for="spename">Spectra:</label><br>
+    <input class="formsour" type="text" id="spename" name="spename"><br>
+    </div>
+    <div class="column">
+    <label for="ligname">Lightcurves:</label><br>
+    <input class="formsour" type="text" id="ligname" name="ligname"><br>
+    </div>
+    <div class="column">
+    <label for="uncname">Uncertainties:</label><br>
+    <input class="formsour" type="text" id="uncname" name="uncname"><br>
+    </div>
+    </div>
+    <input type="submit" value="Submit">
+</form>
+</p>
+
+<h2>Create a custom table of transient neutrino source models</h2>
+<h3>Select source categories to be displayed</h3>
+
+<div class="row">
+<div class="column">
+
+<label class="container">AGN flares
+ <input type="checkbox" checked="checked" id="AGNCheck">
+ <span class="checkmark"></span>
+</label>
+
+<label class="container">TDE
+ <input type="checkbox" id="TDECheck">
+ <span class="checkmark"></span>
+</label>
+
+<label class="container">BNS mergers
+ <input type="checkbox" id="BNSCheck">
+ <span class="checkmark"></span>
+</label>
+
+<label class="container">SLSNe
+ <input type="checkbox" id="SLSCheck">
+ <span class="checkmark"></span>
+</label>
+
+</div>
+<div class="column">
+
+<label class="container">Flares in AGN disks
+ <input type="checkbox" id="FAGNDCheck">
+ <span class="checkmark"></span>
+</label>
+
+<label class="container">Short gamma-ray bursts and binary neutron star mergers
+ <input type="checkbox" id="SGRBBNSMCheck">
+ <span class="checkmark"></span>
+</label>
+
+<label class="container">Gamma-ray bursts
+ <input type="checkbox" id="GRBCheck">
+ <span class="checkmark"></span>
+</label>
+
+<label class="container">Chocked gamma-ray bursts
+ <input type="checkbox" id="CGRBCheck">
+ <span class="checkmark"></span>
+</label>
+
+</div>
+<div class="column">
+
+<label class="container">Supernovae, novae
+ <input type="checkbox" id="SNNCheck">
+ <span class="checkmark"></span>
+</label>
+
+<label class="container">Fast Blue Optical Transients
+ <input type="checkbox" id="FBOTCheck">
+ <span class="checkmark"></span>
+</label>
+
+<label class="container">Magnetars
+ <input type="checkbox" id="MTRCheck">
+ <span class="checkmark"></span>
+</label>
+
+<label class="container">Pulsars
+ <input type="checkbox" id="PSRCheck">
+ <span class="checkmark"></span>
+</label>
+
+</div>
+<div class="column">
+
+<label class="container">X-ray binaries
+ <input type="checkbox" id="XRBCheck">
+ <span class="checkmark"></span>
+</label>
+
+<label class="container">Binary black hole mergers
+ <input type="checkbox" id="BBHMCheck">
+ <span class="checkmark"></span>
+</label>
+
+<label class="container">White dwarf mergers
+ <input type="checkbox" id="WDMCheck">
+ <span class="checkmark"></span>
+</label>
+
+<label class="container">Massive black hole mergers
+ <input type="checkbox" id="MBHMCheck">
+ <span class="checkmark"></span>
+</label>
+
+</div>
+</div>
+
+<h3> Select properties to be displayed</h3>
+
+<div class="row">
+<div class="column">
+
+<label class="container">Transient category
+<input type="checkbox" checked="checked" id="CatCheck">
+<span class="checkmark"></span>
+</label>
+
+<label class="container">Modeling
+<input type="checkbox" checked="checked" id="ModCheck">
+<span class="checkmark"></span>
+</label>
+
+<label class="container">Motivation
+<input type="checkbox" checked="checked" id="MotCheck">
+<span class="checkmark"></span>
+</label>
+
+<label class="container">Results
+<input type="checkbox" id="ResCheck">
+<span class="checkmark"></span>
+</label>
+
+</div>
+<div class="column">
+
+<label class="container">Perspectives
+<input type="checkbox" id="PerCheck">
+<span class="checkmark"></span>
+</label>
+
+<label class="container">Codes
+<input type="checkbox" id="CodCheck">
+<span class="checkmark"></span>
+</label>
+
+<label class="container">Zones
+<input type="checkbox" id="ZonCheck">
+<span class="checkmark"></span>
+</label>
+
+<label class="container">Composition
+<input type="checkbox" id="ComCheck">
+<span class="checkmark"></span>
+</label>
+
+</div>
+<div class="column">
+
+<label class="container">Acceleration
+<input type="checkbox" id="AccCheck">
+<span class="checkmark"></span>
+</label>
+
+<label class="container">Interactions
+<input type="checkbox" id="IntCheck">
+<span class="checkmark"></span>
+</label>
+
+<label class="container">Maximum energies
+<input type="checkbox" id="MaxCheck">
+<span class="checkmark"></span>
+</label>
+
+<label class="container">Spectra
+<input type="checkbox" id="SpeCheck">
+<span class="checkmark"></span>
+</label>
+
+</div>
+<div class="column">
+
+<label class="container">Lightcurves
+<input type="checkbox" id="LCuCheck">
+<span class="checkmark"></span>
+</label>
+
+<label class="container">Uncertainties
+<input type="checkbox" id="UncCheck">
+<span class="checkmark"></span>
+</label>
+
+</div>
+</div>
+
+<label class="container" style="margin:4pt; display: inline;">Year of publication
+<input type="checkbox" id="yrCheck" onclick="yrForm()">
+<span class="checkmark"></span>
+</label>
+<input type="text" id="yrValue" name="yrValue" value="2022" style="opacity: 0;">
+
+<br>
+<br>
+
+<!---->
+
+<p>
+<button type="button" class="button" onclick="generate_table()">Generate the table</button>
+<button type="button" class="button" onclick="tableToCSV()">Export the table (csv)</button>
+</p>
+
+<!---->
+
+<table style="width:100%" id="myTable">
+
+</table>
+
+<!---->
+
+<!---->
+
+<h2 hidden>Transient source models, full table</h2>
+
+<table hidden style="width:100%" id="fullTable">
+
+ <tr>
+   <th id="ThCatFull">Source category</th>
+   <th id="ThModFull">Modeling</th>
+   <th id="ThMotFull">Motivation</th>
+   <th id="ThPerFull">Perspectives</th>
+ </tr>
+
+<!--Active galactic nuclei flares-->
+
+<tr class="AGN 2021">
+    <td class="Papflag"><a href="https://arxiv.org/abs/2107.11437">arXiv (2021)</a></td>
+  <td class="Catflag">FSRQ</td>
+  <td class="Modflag">Steady. Quiet. MW and neutrino emission. Jet. Lepto-hadronic interactions and radiation. Leptonic fit of the SED. Semi-analytic calculation of neutrino emission. Additional radiation from protons and pions.</td>
+  <td class="Motflag">Possible coincidence between PKS1502+106 and IceCube-190730A.</td>
+  <td class="Perflag"></td>
+  <td class="Resflag"> detectability with IceCube </td>
+  <td class="Codflag"> <a href="https://jetset.readthedocs.io/en/latest/"> Jetset </td>
+  <td class="Zonflag"> One zone. spherical emitting region </td>
+  <td class="Comflag"></td>
+  <td class="Accflag"> PL model. same index as electrons. Epmax: tacc vs tloss. Efficiency for tacc. </td>
+  <td class="Intflag"> p-gamma. secondary losses ? </td>
+  <td class="Maxflag"> Ep max 10^16-19 eV. Enu max 10^16-17 eV </td>
+  <td class="Speflag"> Broadband SED photons + neutrinos </td>
+  <td class="LCuflag"> not in paper </td>
+  <td class="Uncflag"> Minimization with JetSet for SED fit </td>
+</tr>
+
+<tr class="AGN 2020">
+    <td class="Papflag"> <a href="https://arxiv.org/pdf/2011.03681.pdf">arXiv (2020)</a></td>
+  <td class="Catflag">blazar flare. two-zone orphan nu</td>
+  <td class="Modflag">Neutrinos from inner blob: interaction of accelerated protons with X-ray corona. and MW spectrum from the outer blob. absorption GeV-TeV photons</td>
+  <td class="Motflag"> TXS 2014-2015 and 4FGL </td>
+  <td class="Perflag"></td>
+  <td class="Resflag"> detectability with IceCube </td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"> Two zones. inner and outer blobs </td>
+  <td class="Comflag"> protons </td>
+  <td class="Accflag"> std timescale vs loss </td>
+  <td class="Intflag"> p-gamma. secondary losses ? </td>
+  <td class="Maxflag"> Enu max 10^14-10^15 eV
+  <td class="Speflag"> Broadband SED photons + neutrinos </td>
+  <td class="LCuflag"> not in paper </td>
+  <td class="Uncflag"> Parameter scan </td>
+</tr>
+
+<tr class="AGN 2020">
+  <td class="Papflag"> <a href="https://arxiv.org/pdf/2005.07218.pdf">arXiv (2020)</a></td>
+  <td class="Catflag">blazar flare. 3HSP</td>
+  <td class="Modflag">MW & neutrino modeling. Lepto-hadronic models with pair cascades. Blazar-core model. hidden external-photon model. proton synchrotron model. intergalactic cascade model.</td>
+  <td class="Motflag"> Possible coincidence with IceCube-200107A. </td>
+  <td class="Perflag"></td>
+  <td class="Resflag"> 1% Poisson proba to detect one muon neutrino with IceCube in 10 yrs (most optimistic: multi-zone model) </td>
+  <td class="Codflag"> <a href="https://arxiv.org/abs/1209.0413"> Time-dependent code. </td>
+  <td class="Zonflag"> one zone </td>
+  <td class="Comflag"> protons </td>
+  <td class="Accflag"> PL model. same index for electrons and protons. Maximum energy for protons: 2*threshold for pion production. </td>
+  <td class="Intflag"> p-gamma. secondary losses ? </td>
+  <td class="Maxflag"> Ep max 1-10 PeV. Enu max PeV </td>
+  <td class="Speflag"> Broadband SED photons + neutrinos </td>
+  <td class="LCuflag"> X-ray variability used to map gamma-ray and neutrino variability </td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="AGN 2019">
+  <td class="Papflag"> <a href="https://arxiv.org/pdf/1911.04010.pdf">arXiv (2019)</a></td>
+  <td class="Catflag">blazar flare. TXS</td>
+  <td class="Modflag">MW & neutrino modeling. Lepto-hadronic model with pair cascades. Synchrotron photons + external radiation fields. Multi-epoch modeling.</td>
+  <td class="Motflag"> Possible coincidence with IceCube-170922A. </td>
+  <td class="Perflag"></td>
+  <td class="Resflag"> upper limit of ∼ 0.4 − 2 on the muon neutrino number in ten years of IceCube observation </td>
+  <td class="Codflag"> <a href="https://arxiv.org/abs/1209.0413"> Time-dependent code tbnew (https://arxiv.org/abs/astro-ph/0008425) </td>
+  <td class="Zonflag"> One zone
+  <td class="Comflag"> protons
+  <td class="Accflag"> PL models. with Emax. </td>
+  <td class="Intflag"> p-gamma. secondary losses negligible </td>
+  <td class="Maxflag"> Ep max ? Enu max PeV </td>
+  <td class="Speflag"> Broadband SED photons + neutrinos </td>
+  <td class="LCuflag"> Different epochs </td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="AGN 2019">
+  <td class="Papflag"> <a href="https://arxiv.org/pdf/1908.10190.pdf">arXiv (2019)</a></td>
+  <td class="Catflag">blazar flare. two-zone model</td>
+  <td class="Modflag">Interaction with external photons in inner blob. and syn and SSC in outer blob.</td>
+  <td class="Motflag"> Possible coincidence with IceCube-170922A. </td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"> two zones </td>
+  <td class="Comflag"></td>
+  <td class="Accflag"> std timescale vs loss </td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="AGN 2019">
+  <td class="Papflag"> <a href="https://arxiv.org/pdf/1906.05302.pdf">arXiv (2019)</a></td>
+  <td class="Catflag">BL Lacs</td>
+  <td class="Modflag">Several BL Lacs. SSC model</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"> Prediction of the number of neutrinos > 100 TeV </td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"> protons </td>
+  <td class="Accflag"> std timescale vs loss. param for efficiency </td>
+  <td class="Intflag"> p-gamma. internal & external photon fields. and secondary losses accounted for </td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"> Broadband SED photons + neutrinos </td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"> Impact of Lorentz boost and magnetic field </td>
+</tr>
+
+<tr class="AGN 2019">
+  <td class="Papflag"> <a href="https://arxiv.org/pdf/1903.02006.pdf">arXiv (2019)</a></td>
+  <td class="Catflag">blazar flare. TXS and implications</td>
+  <td class="Modflag">MW & neutrino constraints using X-ray and gamma-ray observations</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"> not discussed
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="AGN 2018">
+  <td class="Papflag"> <a href="https://arxiv.org/pdf/1807.04537.pdf">arXiv (2018)</a></td>
+  <td class="Catflag">blazar flare. TXS</td>
+  <td class="Modflag">MW & neutrino model initial flare</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"> protons
+  <td class="Accflag"> max gam parameter
+  <td class="Intflag"> p-gamma. secondary losses negligible
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="AGN 2018">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1807.04275.pdf">arXiv (2018)</a></td>
+  <td class="Catflag">blazar flare. TXS</td>
+  <td class="Modflag"> MW & neutrino model. quiescent and flare</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="AGN 2002">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/astro-ph/0206164.pdf">arXiv (2002)</a></td>
+  <td class="Catflag">BL Lac</td>
+  <td class="Modflag">Proton synchrotron model</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<!--Tidal disruption events-->
+
+ <tr class="TDE 2022">
+   <td class="Papflag"><a href="https://arxiv.org/pdf/2205.11538.pdf">arXiv (2022)</a></td>
+   <td class="Catflag">TDE</td>
+   <td class="Modflag">Three models with different radiation backgrounds</td>
+   <td class="Motflag">Possible coincidence of EM transients AT2019dsg. AT2019fdr. AT2019aalc with IceCube events</td>
+   <td class="Perflag">Lack of information from observations to discriminate between models. <br> Proton acceleration; high transfer efficiency from disrupted material to non-thermal protons.</td>
+   <td class="Resflag"></td>
+   <td class="Codflag"> NeuCosmA </td>
+   <td class="Zonflag"> radiation zone </td>
+   <td class="Comflag"> protons </td>
+   <td class="Accflag"> Proton maximum energy. fiducial </td>
+   <td class="Intflag"> p-gamma. p-p and synchrotron for secondaries (minor effect) </td>
+   <td class="Maxflag"> Ep max EeV </td>
+   <td class="Speflag"> present in paper </td>
+   <td class="LCuflag"> present in paper </td>
+   <td class="Uncflag"></td>
+</tr>
+
+ <tr class="TDE 2021">
+     <td class="Papflag"> <a href="https://arxiv.org/abs/2106.15799">arXiv (2021)</a></td>
+     <td class="Catflag">TDE</td>
+     <td class="Modflag">interferometry. exclude jet. constrain non-relativistic outflow</td>
+     <td class="Motflag">AT2019dsg </td>
+     <td class="Resflag"></td>
+     <td class="Perflag"></td>
+     <td class="Codflag"></td>
+     <td class="Zonflag"></td>
+     <td class="Comflag"></td>
+     <td class="Accflag"></td>
+     <td class="Intflag"></td>
+     <td class="Maxflag"></td>
+     <td class="Speflag"></td>
+     <td class="LCuflag"></td>
+     <td class="Uncflag"></td>
+ </tr>
+
+ <tr class="TDE 2020">
+     <td class="Papflag"> <a href="https://arxiv.org/abs/2011.03773">arXiv (2020)</a></td>
+     <td class="Catflag">TDE</td>
+     <td class="Modflag">off-axis jet</td>
+     <td class="Motflag">AT2019dsg </td>
+     <td class="Resflag"></td>
+     <td class="Perflag"></td>
+     <td class="Codflag"></td>
+     <td class="Zonflag"></td>
+     <td class="Comflag">protons </td>
+     <td class="Accflag"></td>
+     <td class="Intflag"></td>
+     <td class="Maxflag"></td>
+     <td class="Speflag"></td>
+     <td class="LCuflag"></td>
+     <td class="Uncflag"></td>
+ </tr>
+
+ <tr class="TDE 2020">
+     <td class="Papflag"> <a href="https://arxiv.org/abs/2005.08937">arXiv (2020)</a></td>
+     <td class="Catflag">TDE. non-jetted</td>
+     <td class="Modflag">Hot corona near accretion disk. and disk wind and TDE debris</td>
+     <td class="Motflag">AT2019dsg </td>
+     <td class="Resflag"></td>
+     <td class="Perflag"></td>
+     <td class="Codflag"></td>
+     <td class="Zonflag"></td>
+     <td class="Comflag">protons </td>
+     <td class="Accflag"></td>
+     <td class="Intflag"></td>
+     <td class="Maxflag">Enu max 1-100 TeV / GeV-PeV </td>
+     <td class="Speflag"></td>
+     <td class="LCuflag"></td>
+     <td class="Uncflag"></td>
+ </tr>
+
+ <tr class="TDE 2020">
+     <td class="Papflag"> <a href="https://arxiv.org/abs/2005.06097">arXiv (2020)</a></td>
+     <td class="Catflag">TDE. jetted</td>
+     <td class="Modflag">Back scattered X-rays from the accretion disk</td>
+     <td class="Motflag"> AT2019dsg </td>
+     <td class="Resflag"></td>
+     <td class="Perflag"></td>
+     <td class="Codflag"></td>
+     <td class="Zonflag"></td>
+     <td class="Comflag"> protons </td>
+     <td class="Accflag"></td>
+     <td class="Intflag"></td>
+     <td class="Maxflag"> Enu max 1-10 PeV </td>
+     <td class="Speflag"> present in paper </td>
+     <td class="LCuflag"> below and above 100 days </td>
+     <td class="Uncflag"></td>
+ </tr>
+
+ <tr class="TDE 2019">
+     <td class="Papflag"> <a href="https://arxiv.org/abs/1908.10882">arXiv (2019)</a></td>
+     <td class="Catflag">TDE. TDE remnants</td>
+     <td class="Modflag"></td>
+     <td class="Motflag"></td>
+     <td class="Resflag"></td>
+     <td class="Perflag"></td>
+     <td class="Codflag"></td>
+     <td class="Zonflag"></td>
+     <td class="Comflag"> protons </td>
+     <td class="Accflag"></td>
+     <td class="Intflag"></td>
+     <td class="Maxflag"></td>
+     <td class="Speflag"></td>
+     <td class="LCuflag"></td>
+     <td class="Uncflag"></td>
+ </tr>
+
+ <tr class="TDE 2017">
+     <td class="Papflag"> <a href="https://arxiv.org/abs/1711.11274">arXiv (2017)</a></td>
+    <td class="Catflag">TDE. jetted</td>
+     <td class="Modflag">Jet. internal shock. CR nucleons and nuclei. secondary energy losses and interactions</td>
+     <td class="Motflag"> Swift J1644 </td>
+     <td class="Resflag"> transient sources not detectable with IceCube or GRAND </td>
+     <td class="Perflag"></td>
+     <td class="Codflag"></td>
+     <td class="Zonflag"></td>
+     <td class="Comflag"> nucleons and nuclei </td>
+     <td class="Accflag"> timescale </td>
+     <td class="Intflag"> p-gamma. X-ray. and secondary losses via synchrotron for pions and muons </td>
+     <td class="Maxflag"> Ep max 10 EeV and Enu max 100 PeV </td>
+     <td class="Speflag"> from simulations </td>
+     <td class="LCuflag"> high and medium states </td>
+     <td class="Uncflag"></td>
+ </tr>
+
+ <tr class="TDE 2017">
+     <td class="Papflag"> <a href="https://arxiv.org/abs/1711.03555">arXiv (2017)</a></td>
+     <td class="Catflag">TDE</td>
+     <td class="Modflag"></td>
+     <td class="Motflag"></td>
+     <td class="Resflag"></td>
+     <td class="Perflag"></td>
+     <td class="Codflag"></td>
+     <td class="Zonflag"></td>
+     <td class="Comflag">nucleons and nuclei </td>
+     <td class="Accflag"></td>
+     <td class="Intflag"></td>
+     <td class="Maxflag"></td>
+     <td class="Speflag"></td>
+     <td class="LCuflag"></td>
+     <td class="Uncflag"></td>
+ </tr>
+
+ <tr class="TDE 2016">
+     <td class="Papflag"> <a href="https://arxiv.org/abs/1612.03160">arXiv (2016)</a></td>
+     <td class="Catflag">TDE</td>
+     <td class="Modflag">jet</td>
+     <td class="Motflag"></td>
+     <td class="Resflag"></td>
+     <td class="Perflag"></td>
+     <td class="Codflag"></td>
+     <td class="Zonflag"></td>
+     <td class="Comflag">protons </td>
+     <td class="Accflag"></td>
+     <td class="Intflag"></td>
+     <td class="Maxflag"></td>
+     <td class="Speflag"></td>
+     <td class="LCuflag"></td>
+     <td class="Uncflag"></td>
+ </tr>
+
+ <tr class="TDE 2016">
+     <td class="Papflag"> <a href="https://arxiv.org/abs/1612.00918">arXiv (2016)</a></td>
+     <td class="Catflag">TDE</td>
+     <td class="Modflag">Successful of chocked jet</td>
+     <td class="Motflag">Swift J1644 </td>
+     <td class="Resflag"></td>
+     <td class="Perflag"></td>
+     <td class="Codflag"></td>
+     <td class="Zonflag"></td>
+     <td class="Comflag"></td>
+     <td class="Accflag"></td>
+     <td class="Intflag"></td>
+     <td class="Maxflag"></td>
+     <td class="Speflag"></td>
+     <td class="LCuflag"></td>
+     <td class="Uncflag"></td>
+ </tr>
+
+ <tr class="TDE 2016">
+     <td class="Papflag"> <a href="https://arxiv.org/abs/1612.00011">arXiv (2016)</a></td>
+     <td class="Catflag">TDE</td>
+     <td class="Modflag">Jets or outflows. population study</td>
+     <td class="Motflag"></td>
+     <td class="Resflag"></td>
+     <td class="Perflag"></td>
+     <td class="Codflag"></td>
+     <td class="Zonflag"></td>
+     <td class="Comflag"></td>
+     <td class="Accflag"></td>
+     <td class="Intflag"></td>
+     <td class="Maxflag"></td>
+     <td class="Speflag"></td>
+     <td class="LCuflag"></td>
+     <td class="Uncflag"></td>
+ </tr>
+
+ <tr class="TDE 2015">
+     <td class="Papflag"> <a href="https://arxiv.org/abs/1512.08596">arXiv (2015)</a></td>
+     <td class="Catflag">TDE</td>
+     <td class="Modflag">Jet. successful or choked in envelope. not transparent to GeV-TeV gamma rays</td>
+     <td class="Motflag"></td>
+     <td class="Resflag"></td>
+     <td class="Perflag"></td>
+     <td class="Codflag"></td>
+     <td class="Zonflag"></td>
+     <td class="Comflag"></td>
+     <td class="Accflag">internal and reverse shocks </td>
+     <td class="Intflag">p-p and p-gamma </td>
+     <td class="Maxflag"></td>
+     <td class="Speflag"></td>
+     <td class="LCuflag"></td>
+     <td class="Uncflag"></td>
+ </tr>
+
+ <tr class="TDE 2011">
+     <td class="Papflag"> <a href="https://arxiv.org/pdf/1106.2426.pdf">arXiv (2011)</a></td>
+     <td class="Catflag">TDE</td>
+     <td class="Modflag">Acceleration in jet. photomeson interactions with X-rays</td>
+     <td class="Motflag">Swift J1644 </td>
+     <td class="Resflag"></td>
+     <td class="Perflag"></td>
+     <td class="Codflag"></td>
+     <td class="Zonflag"></td>
+     <td class="Comflag"></td>
+     <td class="Accflag"></td>
+     <td class="Intflag">secondary losses negligible </td>
+     <td class="Maxflag">Enu max 1-10PeV </td>
+     <td class="Speflag"></td>
+     <td class="LCuflag"></td>
+     <td class="Uncflag"></td>
+ </tr>
+
+<!--Flares in AGN disks-->
+<tr class="FAGND 2021">
+  <td class="Papflag"><a href="https://arxiv.org/abs/2107.06070">arXiv (2021)</a></td>
+  <td class="Catflag">AGN - micro-TDE. AGN stellar explosions</td>
+  <td class="Modflag"> CCSNe. micro-TDEs… in AGN disks</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"> shocks </td>
+  <td class="Intflag"> p-p interactions with disk material </td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="FAGND 2021">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/2103.00789.pdf">arXiv (2021)</a></td>
+  <td class="Catflag">AGN disks. chocked GRBs</td>
+  <td class="Modflag"> reverse shock</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<!--Short gamma-ray bursts and binary neutron star mergers-->
+<tr class="SGRBBNSM 2021">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/2105.01076.pdf">arXiv (2021)</a></td>
+  <td class="Catflag">Short GRB</td>
+  <td class="Modflag"> internal shocks. shock breakout</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="SGRBBNSM 2018">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1805.11613.pdf">arXiv (2018)</a></td>
+  <td class="Catflag">BNS merger. trans-ejecta</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<!--Gamma-ray bursts-->
+<tr class="GRB 2021">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/2102.02223.pdf">arXiv (2021)</a></td>
+  <td class="Catflag">GRB. long GRB</td>
+  <td class="Modflag"> comparison of various GRB emission models and impact on neutrino emission</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="GRB 2021">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/2102.02501.pdf">arXiv (2021)</a></td>
+  <td class="Catflag">GRB. prompt emission</td>
+  <td class="Modflag"> fast cooling. proton synchrotron model</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="GRB 2015">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1511.01396.pdf">arXiv (2015)</a></td>
+  <td class="Catflag">GRB</td>
+  <td class="Modflag"> review</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="GRB 2014">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1407.5671.pdf">arXiv (2014)</a></td>
+  <td class="Catflag">GRB. HNe & Galactic shock</td>
+  <td class="Modflag"> review. internal shock. photospheric and hadronic GRB models</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="GRB 2014">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1409.1271.pdf">arXiv (2014)</a></td>
+  <td class="Catflag">GRB</td>
+  <td class="Modflag"> internal shocks</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="GRB 2013">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1301.4236.pdf">arXiv (2013)</a></td>
+  <td class="Catflag">GRB</td>
+  <td class="Modflag"> quasithermal neutrinos</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="GRB 2007">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/0707.1140.pdf">arXiv (2007)</a></td>
+  <td class="Catflag">GRB</td>
+  <td class="Modflag"> early afterglows</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="GRB 2006">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/astro-ph/0604437v3.pdf">arXiv (2006)</a></td>
+  <td class="Catflag">GRB</td>
+  <td class="Modflag"> far UV and X-ray flares</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="GRB 2002">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/astro-ph/0005440.pdf">arXiv (2002)</a></td>
+  <td class="Catflag">GRB</td>
+  <td class="Modflag"> external shock model</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="GRB 1997">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/astro-ph/9701231.pdf">arXiv (1997)</a></td>
+  <td class="Catflag">GRB</td>
+  <td class="Modflag"> fireball</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<!--Chocked gamma ray bursts-->
+<tr class="CGRB 2021">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/2101.03502.pdf">arXiv (2021)</a></td>
+  <td class="Catflag">Chocked GRB</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="CGRB 2018">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1808.07481.pdf">arXiv (2018)</a></td>
+  <td class="Catflag">LL GRB</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="CGRB 2017">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1706.02175.pdf">arXiv (2017)</a></td>
+  <td class="Catflag">Chocked GRB</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="CGRB 2016">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1512.08513.pdf">arXiv (2016)</a></td>
+  <td class="Catflag">LL / Chocked GRB</td>
+  <td class="Modflag"> hidden neutrino sources.</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="CGRB 2015">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1512.01559.pdf">arXiv (2015)</a></td>
+  <td class="Catflag">SN-GRB</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"> p-p and p-gamma </td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="CGRB 2011">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1108.1551.pdf">arXiv (2011)</a></td>
+  <td class="Catflag">LL GRB</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="CGRB 2008">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/0801.2861.pdf">arXiv (2008)</a></td>
+  <td class="Catflag">HL/LL GRB</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="CGRB 2008">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/0711.2580.pdf">arXiv (2008)</a></td>
+  <td class="Catflag">Chocked relat. jet</td>
+  <td class="Modflag"> reverse shock neutrinos should precede internal shock neutrinos</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"> detectability for IceCube: 2-20 neutrinos. for SN at 10 Mpc. Eiso = 10^53-10^54 erg </td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"> reverse shocks </td>
+  <td class="Intflag"> significant cooling of secondaries </td>
+  <td class="Maxflag"> Ep max 10-100TeV </td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="CGRB 2007">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/0711.4791.pdf">arXiv (2007)</a></td>
+  <td class="Catflag">Chocked GRB</td>
+  <td class="Modflag"> mesons and muons acceleration</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="CGRB 2006">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/astro-ph/0607104.pdf">arXiv (2006)</a></td>
+  <td class="Catflag">LL GRB</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="CGRB 2001">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/astro-ph/0103275.pdf">arXiv (2001)</a></td>
+  <td class="Catflag">GRB successful and chocked</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<!--Supernovae. novae-->
+<tr class="SNN 2022">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/2204.03663.pdf">arXiv (2022)</a></td>
+  <td class="Catflag">Young SNe</td>
+  <td class="Modflag"> Young SNe. types IIn. II-P. IIb/II-L. and Ib/c. HE neutrino and gamma-ray emissions. Analytic solutions of transport equation (radial). source terms from pp interactions</td>
+  <td class="Motflag"> SNe as interesting source class. dense the circumstellar medium </td>
+  <td class="Perflag"> Clear distinction between YSNe and SN remnants (SNRs) not straightforward. Influence of amplification of magnetic field (Bell non-resonant streaming of CRs) on proton acceleration and gamma-ray spectra </td>
+  <td class="Resflag"> detectability < 10 Mpc with CTA & Fermi-LAT or < 4 Mpc with IceCube-Gen2 </td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"> protons </td>
+  <td class="Accflag"> timescales. competition between acceleration and energy losses </td>
+  <td class="Intflag"> p-p. p-gamma neglected </td>
+  <td class="Maxflag"> Enu max about 10^6 GeV </td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"> Base scenario. exploration of parameter space for various YSNe types </td>
+</tr>
+
+<tr class="SNN 2020">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/2007.15742.pdf">arXiv (2020)</a></td>
+  <td class="Catflag">Nova. SN. TDE. Non-Relativistic Shock-Powered Transient</td>
+  <td class="Modflag"> parameter space study</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"> forward/reverse shocks </td>
+  <td class="Intflag"> secondary gamma-ray espace but no pions nor muons losses </td>
+  <td class="Maxflag"> Ep max as a function of optical luminosity </td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"> yes </td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="SNN 2019">
+  <td class="Papflag"><a href="https://arXivorg/pdf/astro-ph/0108447.pdf">arXiv (2019)</a></td>
+  <td class="Catflag">Supernova. nearby supernova</td>
+  <td class="Modflag"> neutrino lightcurves</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"> neutrino </td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="SNN 2001">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/astro-ph/0108447.pdf">arXiv (2001)</a></td>
+  <td class="Catflag">Pulsar driven SN</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<!--Fast Blue Optical Transients-->
+<tr class="FBOT 2022">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/2205.12282.pdf">arXiv (2022)</a></td>
+  <td class="Catflag">Fast Blue Optical Transients</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<!--Magnetars-->
+<tr class="MTR 2021">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/2111.04121.pdf">arXiv (2021)</a></td>
+  <td class="Catflag">Magnetar. multiple zones</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="MTR 2017">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1707.04263.pdf">arXiv (2017)</a></td>
+  <td class="Catflag">Magnetar. NS merger. young. ms period</td>
+  <td class="Modflag"> acc of ions in wind. int with thermal photons in nebula</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"> fraction of vacuum potential drop </td>
+  <td class="Intflag"> Secondary losses </td>
+  <td class="Maxflag"> Ep max > 10 EeV Enu max EeV </td>
+  <td class="Speflag"> Yes </td>
+  <td class="LCuflag"> snapshots </td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="MTR 2016">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1601.02625.pdf">arXiv (2016)</a></td>
+  <td class="Catflag">Magnetar</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="MTR 2016">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1511.08518.pdf">arXiv (2016)</a></td>
+  <td class="Catflag">Magnetar. pulsar. fast-spining pulsars</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"> Enu max EeV </td>
+  <td class="Speflag"> typical E and flux </td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="MTR 2009">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/0904.2509.pdf">arXiv (2009)</a></td>
+  <td class="Catflag">Magnetar. fast rotating</td>
+  <td class="Modflag"> neutrino lightcurves</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"> protons </td>
+  <td class="Accflag"> unipolar induction </td>
+  <td class="Intflag"> p-p. p-gamma and secondary losses </td>
+  <td class="Maxflag"> Ep max 100EeV. Enu max EeV </td>
+  <td class="Speflag"> spectrum </td>
+  <td class="LCuflag"> lightcurves </td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="MTR 2005">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/astro-ph/0503279.pdf">arXiv (2005)</a></td>
+  <td class="Catflag">Magnetar. giant flares</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"> Shocks. timescale </td>
+  <td class="Intflag"> secondary losses claimed negligible </td>
+  <td class="Maxflag"> Enu max 10TeV-PeV </td>
+  <td class="Speflag"> typical E and flux </td>
+  <td class="LCuflag"> no time dependence </td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="MTR 2003">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/astro-ph/0210382.pdf">arXiv (2003)</a></td>
+  <td class="Catflag">Magnetar. young and fast rotating</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"> unipolar induction </td>
+  <td class="Intflag"> correction factor for secondary losses </td>
+  <td class="Maxflag"> Enu max typically TeV </td>
+  <td class="Speflag"> typical E and flux </td>
+  <td class="LCuflag"> no time dependence </td>
+  <td class="Uncflag"></td>
+</tr>
+
+<!--Pulsars-->
+<tr class="PSR 2016">
+  <td class="Papflag"><a href="https://arxiv.org/abs/1511.08518">arXiv (2016)</a></td>
+  <td class="Catflag">Pulsar</td>
+  <td class="Modflag"> DIFFUSE. interaction with expanding SN ejecta and radiation fields of wind nebula</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"> constraints on pulsar and magnetar models. from diffuse emission </td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"> wind </td>
+  <td class="Intflag"> secondary losses pi-p and pi-gamma </td>
+  <td class="Maxflag"> Ep from spin down and Enu EeV (magnetar) </td>
+  <td class="Speflag"> Analytic. one ex. </td>
+  <td class="LCuflag"> Not treated. diffuse </td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="PSR 2014">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1411.2174.pdf">arXiv (2014)</a></td>
+  <td class="Catflag">Pulsar</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="PSR 1997">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/astro-ph/9704186.pdf">arXiv (1997)</a></td>
+  <td class="Catflag">Pulsar</td>
+  <td class="Modflag"> nebula. Crab. nuclei</td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<!--X-ray binaries-->
+<tr class="XRB 2013">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1310.7805.pdf">arXiv (2013)</a></td>
+  <td class="Catflag">X-ray binary. Cygnus X-3</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="XRB 2012">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1212.1457.pdf">arXiv (2012)</a></td>
+  <td class="Catflag">X-ray binary. Cygnus X-3</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="XRB 2003">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/hep-ph/0211231.pdf">arXiv (2003)</a></td>
+  <td class="Catflag">X-ray binary</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="XRB 2002">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/astro-ph/0202200.pdf">arXiv (2002)</a></td>
+  <td class="Catflag">X-ray binary. microquasar</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="XRB 2001">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/hep-ph/0106102.pdf">arXiv (2001)</a></td>
+  <td class="Catflag">X-ray binary. microquasar</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<!--Binary black hole mergers-->
+<tr class="BBHM 2016">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1602.06961.pdf">arXiv (2016)</a></td>
+  <td class="Catflag">BH mergers</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="BBHM 2016">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1602.06938.pdf">arXiv (2016)</a></td>
+  <td class="Catflag">BH mergers</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<tr class="BBHM 2016">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1612.02648.pdf">arXiv (2016)</a></td>
+  <td class="Catflag">BH mergers</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<!--White dwarf mergers -->
+<tr class="WDM 2016">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/1608.08150.pdf">arXiv (2016)</a></td>
+  <td class="Catflag">WD mergers</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+<!--Massive Black hole merger-->
+<tr class="MBHM 2020">
+  <td class="Papflag"><a href="https://arxiv.org/pdf/2008.05616.pdf">arXiv (2020)</a></td>
+  <td class="Catflag">SMBH merger</td>
+  <td class="Modflag"></td>
+  <td class="Motflag"></td>
+  <td class="Perflag"></td>
+  <td class="Resflag"></td>
+  <td class="Codflag"></td>
+  <td class="Zonflag"></td>
+  <td class="Comflag"></td>
+  <td class="Accflag"></td>
+  <td class="Intflag"></td>
+  <td class="Maxflag"></td>
+  <td class="Speflag"></td>
+  <td class="LCuflag"></td>
+  <td class="Uncflag"></td>
+</tr>
+
+</table>
+
+<!---->
+
+<br>
+
+<!--<p><img src="TDE_draw.jpg" alt="Tidal disruption event drawing"></p>-->
+
+<footer>
+<address>
+This page is created and maintained by Claire Guépin and Valentin Decoene<br>
+For more information or suggestions, contact us at: cguepin@umd.edu and decoene@psu.edu<br>
+</address>
+<p> You can also check <a href="http://www.iap.fr/useriap/guepin/" target="_blank"> my personal webpage. </a> </p>
+</footer>
+
+</body>
+
+</html>

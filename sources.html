@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<title>HUNT-DB</title>
+
+<!--<base href="/Users/decoene/Documents/HUNTDB_dev/HUNTDB/"> -->
+<base href="./">
+
+<link rel="stylesheet" href="Styles/stylesHUNTDB.css">
+<link rel="icon" type="image/x-icon" href="Images/Logo.png">
+
+<meta charset="UTF-8">
+<meta name="description" content="Database for neutrino transient models">
+<meta name="keywords" content="Transient, Neutrino, Astrophysics">
+<meta name="author" content="Claire Guépin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="Scripts/scriptsHUNTDB.js"></script>
+
+</head>
+
+<body>
+
+<!--Page title-->
+<header>
+<h1>
+<img src="Images/Logo.png" alt="Logo" style="vertical-align:middle; width: 5%;">
+High-energy to Ultra-high energy Neutrino Transient Data Base.
+</h1>
+</header>
+
+<!--Navigation bar-->
+<nav>
+<div class="topnav">
+ <a href="index.html">Home</a>
+ <a href="table.html">Database</a>
+ <a href="manual.html">Manual</a>
+ <a class="active" href="sources.html">Sources</a>
+ <a href="random.html">Random</a>
+</div>
+</nav>
+
+<h2>Description of transient sources</h2>
+
+<p>Click the images below to access the description of the corresponding source class.</p>
+
+<div class="clearfix">
+    <div class="columntot">
+
+ <!--Active galactic nuclei-->
+ <div class="columnso">
+     <figure onclick="descSource('descAGN', 'figAGN')">
+     <figcaption id="figAGN">Active galactic nuclei</figcaption>
+     <img src="Images/Logo.png" alt="Logo" style="vertical-align:middle; width: 60%;">
+     </figure>
+ </div>
+ 
+ <!--Gamma-ray bursts-->
+ <div class="columnso">
+     <figure onclick="descSource('descGRB', 'figGRB')">
+     <figcaption id="figGRB">Gamma-ray bursts</figcaption>
+     <img src="Images/Logo.png" alt="Logo" style="vertical-align:middle; width: 60%;">
+     </figure>
+ </div>
+ 
+ <!--Tidal disruption events-->
+ <div class="columnso">
+     <figure onclick="descSource('descTDE', 'figTDE')">
+     <figcaption id="figTDE">Tidal disruption events</figcaption>
+     <img src="Images/Logo.png" alt="Logo" style="vertical-align:middle; width: 60%;">
+     </figure>
+ </div>
+ 
+ <!--Supernovae-->
+ <div class="columnso">
+     <figure onclick="descSource('descSNe', 'figSNe')">
+     <figcaption id="figSNe">Supernovae</figcaption>
+     <img src="Images/Logo.png" alt="Logo" style="vertical-align:middle; width: 60%;">
+     </figure>
+ </div>
+ 
+ <!--Neutron stars-->
+ <div class="columnso">
+     <figure onclick="descSource('descNS', 'figNS')">
+     <figcaption id="figNS">Neutron stars</figcaption>
+     <img src="Images/Logo.png" alt="Logo" style="vertical-align:middle; width: 60%;">
+     </figure>
+ </div>
+ 
+ <!--Compact object mergers-->
+ <div class="columnso">
+     <figure onclick="descSource('descCOM', 'figCOM')">
+     <figcaption id="figCOM">Compact object mergers</figcaption>
+     <img src="Images/Logo.png" alt="Logo" style="vertical-align:middle; width: 60%;">
+     </figure>
+ </div>
+ 
+ <!--Fast Blue Optical Transients-->
+ <div class="columnso">
+     <figure onclick="descSource('descFBOT', 'figFBOT')">
+     <figcaption id="figFBOT">Fast Blue Optical Transients</figcaption>
+     <img src="Images/Logo.png" alt="Logo" style="vertical-align:middle; width: 60%;">
+     </figure>
+ </div>
+ 
+ <!--X-ray binaries-->
+ <div class="columnso">
+     <figure onclick="descSource('descXRB', 'figXRB')">
+     <figcaption id="figXRB">X-ray binaries</figcaption>
+     <img src="Images/Logo.png" alt="Logo" style="vertical-align:middle; width: 60%;">
+     </figure>
+ </div>
+ 
+ </div>
+
+    <div class="columntot">
+
+<!--Active galactic nuclei-->
+<div class="desc" id="descAGN" style="display: none;">
+<h2 class="desc">Flares from active galactic nuclei</h2>
+<p class="desc">Blazars are active galactic nuclei, which harbor a relativistic jet oriented towards (or nearly) the line of sight. </p>
+<p class="desc"> They are classified as BL Lacertae (BL Lacs) or Flat Spectrum Radio Quasars (FSRQs), depending on their spectral features. </p>
+<p class="desc"> Blazar flares are extensively studied in the literature through the modeling of their multi-wavelength and multi-messenger emissions. These models require a significant number of parameters, and therefore focus on specific sources with high quality multi-wavelength and multi-messenger data, in order to break degeneracies in the parameter space \cite{Gao:2018mnu, Keivani:2018rnh, Petropoulou:2019zqp, Oikonomou:2019pmg, Xue19, Xue:2020kuw, Petropoulou:2020pqh}. The models usually predict steady state spectra during the flare, potentially compared with quiescent spectra. </p>
+</div>
+
+<!--Gamma-ray bursts-->
+<div class="desc" id="descGRB" style="display: none;">
+<h2 class="desc">Gamma-ray bursts</h2>
+<p class="desc"> Gamma-ray bursts (GRB) encompass various categories, involving different progenitors and source environments, and can be associated with successful to fully chocked jets, or winds, with numerous promising sites for HE-UHE neutrino production, such as internal shocks, or jet-cocoon interaction sites. Populations of sources hidden in terms of EM radiation could provide a significant contribution to the diffuse HE neutrino flux.</p>
+
+<p class="desc"> <b> Long GRBs. </b> Supernovae and hypernovae are closely connected to long GRBs and low-luminosity GRBs (LL GRBs) \cite{Hjorth:2011zx}. Long GRBs are the most luminous sources of EM radiation of the Universe, produced by the core collapse of super-massive stars. Their precursor and prompt phases are dominated by gamma rays, whereas their afterglow is dominated by radio and X-ray emissions. Their production of HE to UHE neutrinos during these different phases has been extensively studied \cite{Waxman:1997ti, Dermer:2000yd, Murase:2006dr, Murase:2007yt, Murase:2008mr, Meszaros:2015krr, Globus15}, and depends strongly on the production sites \cite{Pitik:2021xhb}. Correlations with GeV-TeV neutrinos could help constrain GRB emission mechanisms \cite{Murase:2013hh}. The detection of VHE emissions during GRB afterglows, for instance GRB 180720B or GRB 190114C \cite{Abdalla:2019dlr, MAGIC:2019lau} challenges emission models and opens the possibility of an hadronic component required to explain the light curve.</p>
+
+<p class="desc"> <b> Low luminosity and choked GRBs. </b> LL GRBs have been suggested as a separate population from high-luminosity GRBs, due to their longer variability timescales, lower luminosities and break energies, and possibly lower Lorentz factors \cite{Virgili09, Bromberg11}. Unified models consider off-axis or semi-chocked jets \cite{Nakar15, Salafia16}. However, off-axis models tend to be inconsistent with observations due to the lack of a bright afterglow. HE neutrino production is studied in the context of trans-relativistic shock breakout models or weak jets, with fully or partially choked jets depending on the properties of the progenitor \cite{Kashiyama13, Senno:2015tsn, Boncioli:2018lrv, Fasano:2021bwq}.</p>
+
+<p class="desc"> <b> Short GRBs and neutron star mergers. </b> Short GRBs belong to a separate class of transient events, linked to compact-object binary mergers. The well known NS-NS merger GW170817/GRB-170817A has been detected in GW and across the full EM spectrum. Existing scenarios for the production of HE-UHE cosmic rays and neutrinos in short GRBs include for instance the production of a magnetar by the NS-NS merger \cite{Piro:2016jaq, Fang:2017tla}, or structured jets interacting with the merger ejecta \cite{Kimura:2018vvz, Gottlieb:2021pzr}. The production of transient HE neutrino signals from NS-NS merger remnants has also been studied \cite{Decoene:2019eux}.</p>
+
+</p>
+</div>
+
+<!--Tidal disruption events-->
+<div class="desc" id="descTDE" style="display: none;">
+<h2 class="desc">Tidal disruptions by massive black holes</h2>
+<p class="desc">Tidal disruptions of stars by massive black holes (TDE, for Tidal Disruption Event) have been observed in the UV, X-rays and $\gamma$ rays \cite{Komossa15}, and can produce luminous and long-lasting flares, sometimes associated with relativistic jets \cite{Bloom2011, Burrows2011}. HE-VHE neutrino production in TDE jets has been extensively studied \cite{Murase08a, MT09, Wang11, Wang16, Senno16b, Dai16, Lunardini16, Biehl:2017hnb, Guepin:2017abw, Winter:2020ptf}, as well as models involving non-relativistic outflows and off-axis jets \cite{Hayasaki:2019kjy, Murase:2020lnu, Liu:2020isi}, further motivated by the hint of association between AT2019dsg and IC191001A \cite{Stein20}. A few of these models account for possible acceleration and interactions of cosmic-ray nuclei \cite{Biehl:2017hnb, Guepin:2017abw}, or account for time-dependent modeling \cite{Guepin:2017abw, Hayasaki:2019kjy}.</p>
+</div>
+
+<!--Supernovae-->
+<div class="desc" id="descSNe" style="display: none;">
+<h2 class="desc">Supernovae</h2>
+<p class="desc">The production of HE to UHE neutrino from novae, thermonuclear or core-collapse supernovae and hypernovae has been extensively studied. It is closely related with HE to UHE neutrino production from pulsars \cite{Beall02} and magnetars, as supernovae and hypernovae can be driven by pulsars or magnetars. These populations of sources can produce Galactic or extra-galactic transient neutrino emissions. These compact objects have been suggested as potential VHE-UHE cosmic-ray sources, e.g. \cite{Arons03, Fang12, Kotera15, Guepin:2019fjb}. Many studies focus on modeling their quiescent emissions, and mostly hadronic interactions, due to the dense hadronic backgrounds. However, transient HE neutrino emissions can be produced through interactions with non-thermal, thermal or baryonic fields of the ejecta. A precise modeling of HE neutrino light-curve can help to identify transient or time-dependent emissions from these sources \cite{Murase:2009pg, Fang16, Murase:2017pfe, Fang:2020bkm}. </p>
+</div>
+
+<!--Neutron stars-->
+<div class="desc" id="descNS" style="display: none;">
+<h2 class="desc">Neutron stars</h2>
+<p class="desc">Young pulsars or magnetars with millisecond periods could produce transient emissions associated with the short characteristic timescales of their rotation
+energy losses. Interaction with radiation backgrounds inside the pulsar magnetosphere could also lead to transient HE-UHE neutrino emissions. In existing
+magnetar models, protons extracted from the surface of young magnetars can be accelerated to ultra-high energies, and interact with the high X-ray
+background close to the surface or the surrounding baryonic background, potentially enhanced during/after bursts and flares [Zhang:2002xv, Ioka:2005er]. </p>
+<p class="desc"> <b> Pulsars. </b>
+  blabla
+<p class="desc"> <b> Magnetars. </b>
+  blabla
+</div>
+
+<!--Compact object mergers-->
+<div class="desc" id="descCOM" style="display: none;">
+<h2 class="desc">Compact object mergers</h2>
+<p class="desc">Gravitational wave detections by the LIGO and Virgo collaborations have raised the interest for compact object mergers, mainly black hole (BH-BH) mergers,
+but also black hole-neutron star (BH-NS) mergers, and neutron star mergers previously mentioned. The existence of EM and MM counterparts to BH-BH or
+BH-NS has been proposed [Murase:2016etc, Kotera:2016dmp, deVries:2016ljw], for instance with the Blandford-Znajek process generating an outflow.
+White dwarf mergers have also been proposed as a source of high-energy neutrinos [Xiao:2016man], with a potentially optically thick debris disk hiding
+HE photons from the observer.</p>
+<p class="desc"> <b> Binary black holes mergers. </b>
+  blabla
+<p class="desc"> <b> Binary neutron stars mergers. </b>
+  blabla
+<p class="desc"> <b> Neutron star black hole mergers. </b>
+  bloblo héhé
+<p class="desc"> <b> Massive black holes mergers. </b>
+  blabla
+</div>
+
+<!--Fast Blue Optical Transient-->
+<div class="desc" id="descFBOT" style="display: none;">
+<h2 class="desc">Fast Blue Optical Transient</h2>
+<p class="desc">blabla</p>
+</div>
+
+<!--X-ray binaries-->
+<div class="desc" id="descXRB" style="display: none;">
+<h2 class="desc">X-ray binaries</h2>
+<p class="desc">Closely related sources are X-ray binaries (XRB), composed of a neutron star or a black hole and a companion star. These sources are bright in X-rays
+and sometimes gamma rays, and can present winds or collimated beams (mircoquasars). XRBs are interesting prospective Galactic sources for cosmic-
+ray acceleration and HE neutrino production [Levinson:2001as, Anchordoqui:2002xu, Distefano:2002qw, Baerwald:2012yd, Sahakyan:2013opa].
+Existing models consider photohadronic but also purely hadronc interactions. Moreover, they mostly focus on diffuse emissions, and predict neutrino signals
+principally below the HE range. Nevertheless, transient neutrino signals could be produced in coincidence with their periodic emissions and outbursts.</p>
+</div>
+
+</div>
+</div>
+
+<footer>
+<address>
+This page is created and maintained by Claire Guépin and Valentin Decoene<br>
+For more information or suggestions, contact us at: cguepin@umd.edu and decoene@psu.edu<br>
+</address>
+<p> You can also check <a href="http://www.iap.fr/useriap/guepin/" target="_blank"> my personal webpage. </a> </p>
+</footer>
+
+</body>
+
+</html>
