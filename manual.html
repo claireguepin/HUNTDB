@@ -3,7 +3,7 @@
 
 <head>
 
-<title>HUNT-DB</title>
+<title>HUNT-MDB</title>
 
 <!--<base href="/Users/decoene/Documents/HUNTDB_dev/HUNTDB/"> -->
 <base href="./">
@@ -25,7 +25,7 @@
 <header>
 <h1>
 <img src="Images/Logo.png" alt="Logo" style="vertical-align:middle; width: 5%;">
-High-energy to Ultra-high energy Neutrino Transient Data Base.
+High-energy to Ultra-high energy Neutrino Transient Model Data Base.
 </h1>
 </header>
 
@@ -36,13 +36,73 @@ High-energy to Ultra-high energy Neutrino Transient Data Base.
     <a href="table.html">Database</a>
     <a class="active" href="manual.html">Manual</a>
     <a href="sources.html">Sources</a>
-    <a href="random.html">Random</a>
+    <a href="random.html">Simulation tools</a>
 </div>
 </nav>
 
-<p>
-Here we explain how to use the database, and define model properties.
-</p>
+<h2>How to use the database</h2>
+
+<h2>Definition of model properties</h2>
+
+<table>
+<tr>
+    <td><span style="font-weight:bold">Transient category</span></td>
+    <td>Display the transient category as defined in the paper. Sub-categories can be used with respect to our definition of source categories.</td>
+</tr>
+<tr>
+    <td><span style="font-weight:bold">Modeling</span></td>
+    <td>Brief summary of the type of model adopted in the paper. Generally includes some information about the type of signals modeled, the type of interaction, the region in the source and some original aspects.</td>
+</tr>
+<tr>
+    <td><span style="font-weight:bold">Motivation</span></td>
+    <td>Specific observational or theoretical motivation.</td>
+</tr>
+<tr>
+    <td><span style="font-weight:bold">Results</span></td>
+    <td>Selected results, usually found in the abstract of the paper.</td>
+</tr>
+<tr>
+    <td><span style="font-weight:bold">Perspectives</span></td>
+    <td>Selected perspectives, interesting for further modeling.</td>
+</tr>
+<tr>
+    <td><span style="font-weight:bold">Codes</span></td>
+    <td>Simulation tools used for the model.</td>
+</tr>
+<tr>
+    <td><span style="font-weight:bold">Zones</span></td>
+    <td>Transient source models usually involve one or more zones inside the source, where different processes can take place. In one zone models particles are accelerated, propagate and interact in a region that produces all observed emission. When this type of description is inadequate, for instance, when one zone models fail to explain multi-wavelength or MM data, two zone models can be adopted. For example, acceleration can be treated prior to interactions (first zone) and accelerated  hadrons and leptons can be injected in the interaction region (second zone) where they only propagate and interact. Another example is the use of an external radiation background as a target for interactions. The use of two-zone models should be well motivated by a sufficient amount of available multi-wavelength or MM data, due to the caveat that considering two or more zones allows for additional degrees of freedom.</td>
+</tr>
+<tr>
+    <td><span style="font-weight:bold">Composition</span></td>
+    <td>Cosmic-ray composition. Most models consider pure proton, some include nuclei.</td>
+</tr>
+<tr>
+    <td><span style="font-weight:bold">Acceleration</span></td>
+    <td>Phenomenological models describe an acceleration timescale and a spectrum for accelerated particles, often modeled by a power-law of maximum energy E_max and spectral index alpha. Various acceleration processes involve the scattering of charged particles on magnetic inhomogeneities. A precise description of acceleration processes, such as shock acceleration or magnetic reconnection for instance, requires the modeling of the astrophysical plasma and the complex interplay between the charged particles and the electromagnetic fields, at scales of the order of the plasma skin depth.</td>
+</tr>
+<tr>
+    <td><span style="font-weight:bold">Interactions</span></td>
+    <td>Primary and secondary interactions involved in the neutrino production.</td>
+</tr>
+<tr>
+    <td><span style="font-weight:bold">Maximum energies</span></td>
+    <td>Cosmic-ray and neutrino maximum energies after acceleration, energy losses and interactions.</td>
+</tr>
+<tr>
+    <td><span style="font-weight:bold">Spectra</span></td>
+    <td>Various spectra predicted by the model and their characteristics.</td>
+</tr>
+<tr>
+    <td><p><span style="font-weight:bold">Lightcurves</span></td>
+    <td>When time-dependences are accounted for, description of the method used to predict the neutrino luminosity as a function of time. For instance, the time evolution of the source can be separated in different epochs, or multi-wavelength data can be used to map the neutrino luminosity.</td>
+</tr>
+<tr>
+    <td><span style="font-weight:bold">Uncertainties</span></td>
+    <td>When uncertainties are accounted for, method used for parameter scan and/or fitting procedure.</td>
+</tr>
+</table>
+
 
 <footer>
 <address>
