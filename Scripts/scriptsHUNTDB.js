@@ -27,11 +27,11 @@ function generate_table() {
     }
 
     // Sources selected
-    const sourall = ["TDECheck", "AGNCheck", "BNSCheck", "SLSCheck",
+    const sourall = ["TDECheck", "AGNCheck", "SLSCheck",
                      "FAGNDCheck", "SGRBBNSMCheck", "GRBCheck", "CGRBCheck",
                      "SNNCheck", "FBOTCheck", "MTRCheck", "PSRCheck",
                      "XRBCheck", "BBHMCheck", "WDMCheck", "MBHMCheck"];
-    const sournaall = ["TDE", "AGN", "BNS", "SLS",
+    const sournaall = ["TDE", "AGN", "SLS",
                        "FAGND", "SGRBBNSM", "GRB", "CGRB",
                        "SNN", "FBOT", "MTR", "PSR",
                        "XRB", "BBHM", "WDM", "MBHM"];
@@ -100,20 +100,20 @@ function descSource(y1, y2) {
     if (x1.style.display === "none") {
         x1.style.display = "block";
         x2.style.color = "darkblue";
-        x2.style.fontWeight = "bold";
+//        x2.style.fontWeight = "bold";
         for (var i = 0; i < desclist.length; i++) {
             if (y1 != desclist[i]) {
                 var x1loc = document.getElementById(desclist[i]);
                 var x2loc = document.getElementById(figlist[i]);
                 x1loc.style.display = "none";
                 x2loc.style.color = "black";
-                x2loc.style.fontWeight = "normal";
+//                x2loc.style.fontWeight = "normal";
             }
         }
     } else {
         x1.style.display = "none";
         x2.style.color = "black";
-        x2.style.fontWeight = "normal";
+//        x2.style.fontWeight = "normal";
     }
 }
 
