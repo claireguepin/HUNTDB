@@ -313,6 +313,11 @@ ul {
  padding: 0pt;
 }
 
+p + ul {
+    margin-top: -5px;
+}
+
 ul li {
     padding: 0pt;
+    margin: 5pt 0;
 }
