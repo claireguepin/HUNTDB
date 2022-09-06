@@ -1,5 +1,5 @@
 *{
-/*    margin: 0;*/
+/*    margin: 0pt;*/
 }
 
 body {
@@ -9,10 +9,11 @@ body {
 /*    background-size: cover;*/
     font-family: verdana;
     background-color: AliceBlue;
+    margin: 0pt 20pt 10pt 20pt;
 }
 
 h1 {
-    margin: -10pt -10pt 0pt -10pt;
+    margin: -10pt -20pt 0pt -20pt;
     padding: 20pt;
     background-color: Lavender;
     color: midnightblue;
@@ -78,9 +79,9 @@ tr:hover {
     
 }
 
-/* Add a black background color to the top navigation */
+/* Add a background color to the top navigation */
 .topnav {
-    margin: 0pt -10pt 0pt -10pt;
+    margin: 0pt -20pt 0pt -20pt;
 /*    padding: 10pt 10pt 10pt 10pt;*/
     background-color: midnightblue;
     overflow: hidden;
@@ -91,7 +92,7 @@ tr:hover {
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 30px;
   text-decoration: none;
   font-size: 17px;
 }
@@ -109,7 +110,7 @@ tr:hover {
 }
 
 footer {
-    margin: 10pt -10pt -10pt -10pt;
+    margin: 10pt -20pt -10pt -20pt;
     padding: 20pt 20pt 10pt 20pt;
     background-color: Lavender;
 }
