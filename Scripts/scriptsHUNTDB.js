@@ -3,17 +3,17 @@ function generate_table() {
 
     // Properties selected
     const propchall = ["CatCheck", "ModCheck", "MotCheck", "ResCheck",
-                       "PerCheck", "CodCheck", "ZonCheck", "ComCheck",
-                       "AccCheck", "IntCheck", "MaxCheck", "SpeCheck",
-                       "LCuCheck", "UncCheck"];
+                       "PerCheck", "UncCheck", "CodCheck", "ZonCheck",
+                       "ComCheck", "AccCheck", "IntCheck", "MaxCheck",
+                       "SpeCheck", "LCuCheck"];
     const propflall = ["Catflag", "Modflag", "Motflag", "Resflag",
-                       "Perflag", "Codflag", "Zonflag", "Comflag",
-                       "Accflag", "Intflag", "Maxflag", "Speflag",
-                       "LCuflag", "Uncflag"];
+                       "Perflag", "Uncflag", "Codflag", "Zonflag",
+                       "Comflag", "Accflag", "Intflag", "Maxflag",
+                       "Speflag", "LCuflag"];
     const propnaall = ["Transient category", "Modeling", "Motivation", "Results",
-                       "Perspectives", "Codes", "Zones", "Composition",
-                       "Acceleration", "Interactions", "Maximum energies", "Spectra", "Lightcurves",
-                       "Uncertainties"];
+                       "Perspectives", "Uncertainties", "Codes", "Zones",
+                       "Composition", "Acceleration", "Interactions",
+                       "Maximum energies", "Spectra", "Lightcurves"];
 
     const properties = ["Papflag"];
     const propertiesna = ["Paper"];
