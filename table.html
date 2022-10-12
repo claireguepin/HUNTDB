@@ -87,6 +87,10 @@ To submit a source model,
     <input class="formsour" type="text" id="pername" name="pername"><br>
     </div>
     <div class="column">
+    <label for="uncname">Uncertainties:</label><br>
+    <input class="formsour" type="text" id="uncname" name="uncname"><br>
+    </div>
+    <div class="column">
     <label for="codname">Codes:</label><br>
     <input class="formsour" type="text" id="codname" name="codname"><br>
     </div>
@@ -117,10 +121,6 @@ To submit a source model,
     <div class="column">
     <label for="ligname">Lightcurves:</label><br>
     <input class="formsour" type="text" id="ligname" name="ligname"><br>
-    </div>
-    <div class="column">
-    <label for="uncname">Uncertainties:</label><br>
-    <input class="formsour" type="text" id="uncname" name="uncname"><br>
     </div>
     </div>
     <input type="submit" value="Submit">
@@ -253,6 +253,11 @@ To submit a source model,
 <span class="checkmark"></span>
 </label>
 
+<label class="container">Uncertainties
+<input type="checkbox" id="UncCheck">
+<span class="checkmark"></span>
+</label>
+
 <label class="container">Codes
 <input type="checkbox" id="CodCheck">
 <span class="checkmark"></span>
@@ -263,13 +268,14 @@ To submit a source model,
 <span class="checkmark"></span>
 </label>
 
+
+</div>
+<div class="column">
+
 <label class="container">Composition
 <input type="checkbox" id="ComCheck">
 <span class="checkmark"></span>
 </label>
-
-</div>
-<div class="column">
 
 <label class="container">Acceleration
 <input type="checkbox" id="AccCheck">
@@ -286,21 +292,16 @@ To submit a source model,
 <span class="checkmark"></span>
 </label>
 
+</div>
+<div class="column">
+
 <label class="container">Spectra
 <input type="checkbox" id="SpeCheck">
 <span class="checkmark"></span>
 </label>
 
-</div>
-<div class="column">
-
 <label class="container">Lightcurves
 <input type="checkbox" id="LCuCheck">
-<span class="checkmark"></span>
-</label>
-
-<label class="container">Uncertainties
-<input type="checkbox" id="UncCheck">
 <span class="checkmark"></span>
 </label>
 
